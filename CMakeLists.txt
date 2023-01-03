@@ -7,19 +7,19 @@ INCLUDE(ProjectVar.txt)
 
 ADD_SUBDIRECTORY(src)
 
-INSTALL(DIRECTORY include/mockcpp DESTINATION include
+INSTALL(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/mockcpp DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/include
         PATTERN ".svn" EXCLUDE)
 
 IF(MOCKCPP_INSTALL_BOOST)
   IF(MSVC)
-    INSTALL(DIRECTORY 3rdparty/boost DESTINATION 3rdparty
+    INSTALL(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/boost DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty
             PATTERN ".svn" EXCLUDE)
   ELSE(MSVC)
-    INSTALL(DIRECTORY 3rdparty/boost DESTINATION include
+    INSTALL(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/boost DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/include
             PATTERN ".svn" EXCLUDE)
   ENDIF()
 ENDIF()
 
-SET(MOCKCPP_XUNIT "testngpp" CACHE STRING "Set to gtest/cpputest/cppunit to use other testframeworks.")
+SET(MOCKCPP_XUNIT "gtest" CACHE STRING "Set to gtest/cpputest/cppunit to use other testframeworks.")
 
 
