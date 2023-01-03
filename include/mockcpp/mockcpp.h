@@ -55,11 +55,13 @@
 
 #endif
 
+#if __cplusplus < 199711L
 template <bool condition>
 struct static_assert
 {
     typedef int static_assert_failure[condition ? 1 : -1];
 };
+#endif // __cplusplus
 
 
 #endif // __MOCKCPP_H
